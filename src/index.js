@@ -1,5 +1,12 @@
 console.log('hello webpack');
 import './style.scss';
-import typescript from './typescript';
-typescript.hello('Merle');
-// typescript.hello(1);
+
+import { createApp, ref } from 'vue';
+
+const app = createApp( {
+    setup() {
+        return {
+            count: ref(0)
+        }
+    }
+}).mount('#app');
