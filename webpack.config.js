@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
 //   mode: 'production',  
@@ -33,6 +34,10 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader" ,"sass-loader"],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
     ],
   },
   plugins: [
@@ -45,6 +50,7 @@ module.exports = {
         __VUE_OPTIONS_API__: true,
         __VUE_PROD_DEVTOOLS__: true,
         __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true
-    })
+    }),
+    new VueLoaderPlugin()
   ],  
 };

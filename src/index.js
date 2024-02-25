@@ -1,12 +1,5 @@
-console.log('hello webpack');
 import './style.scss';
 
-import { createApp, ref } from 'vue';
-
-const app = createApp( {
-    setup() {
-        return {
-            count: ref(0)
-        }
-    }
-}).mount('#app');
+import { createApp } from 'vue';
+import App from './App.vue';
+const app = createApp(App).mount('#app');
