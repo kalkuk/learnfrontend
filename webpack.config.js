@@ -2,14 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-let pages = [];
-for(let i = 10; i<20; i++) {
-    pages.push( new HtmlWebpackPlugin({
-        filename: i+'.html',
-        template: './src/views/number.njk',
-        templateParameters: { number: i}
-    }));
-}
+
 module.exports = {
 //   mode: 'development',  
   entry: './src/index.js',
@@ -34,28 +27,11 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader" ,"sass-loader"],
-      },
-      {
-        test: /\.njk$/,
-        use: [
-            {
-                loader: 'simple-nunjucks-loader',
-                options: {}
-            }
-        ]
-    }
+      }
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-    template: './src/views/index.njk'
-   }),
-   new HtmlWebpackPlugin({
-    filename: 'about.html',
-    template: './src/views/about.njk'
-   }),
-   new MiniCssExtractPlugin(),
-   ...pages,
-],
-  
+    new HtmlWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+  ],  
 };
