@@ -11,20 +11,51 @@
                     </button>
                 </div>
             </div>
+            <h1>All items</h1>
             <ul>
-                <li v-for="item in items">{{ item }}</li>
+                <li v-for="item in items" :key="item.id">
+                  {{ item.name }}
+                <input type="checkbox" v-model="item.isDone">
+                </li>
+            </ul>
+
+            <h1>Done items</h1>
+            <ul>
+                <li v-for="item in doneItems" :key="item.id">
+                  {{ item.name }}
+                <input type="checkbox" v-model="item.isDone">
+                </li>
+            </ul>
+           
+            <h1>ToDo items</h1>
+            <ul>
+                <li v-for="item in toDoItems" :key="item.id">
+                  {{ item.name }}
+                <input type="checkbox" v-model="item.isDone">
+                </li>
             </ul>
         </div>
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 let message = ref('');
-let items = ref(['sai', 'piim', 'leib']);
+let i = 0;
+let items = ref([
+ {id: i++, name: 'sai',isDone: false}, 
+{id: i++, name:'piim',isDone: true}, 
+{id: i++, name:'leib',isDone: false},
+]);
 function addItem() {
   if(message.value.trim() !== '') {
-    items.value.push(message.value.trim());
+    items.value.push({id: i++, name: message.value.trim(),isDone: false});
   }
   message.value = '';
 }
+const doneItems = computed(() => {
+    return items.value.filter(item => item.isDone);
+});
+const toDoItems = computed(() => {
+    return items.value.filter(item => !item.isDone);
+});
 </script>
