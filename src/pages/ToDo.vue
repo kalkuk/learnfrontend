@@ -13,8 +13,6 @@
             <ItemList :items="items" title="All Items"></ItemList>
             <ItemList :items="doneItems" title="Done Items"></ItemList>
             <ItemList :items="toDoItems" title="To Do Items"></ItemList>
-        </div>
-    </div>
 </template>
 <script setup>
 import { ref, computed } from 'vue';
