@@ -34,11 +34,13 @@
                 <input type="checkbox" v-model="item.isDone">
                 </li>
             </ul>
+            <ItemList></ItemList>
         </div>
     </div>
 </template>
 <script setup>
 import { ref, computed } from 'vue';
+import ItemList from './components/ItemList.vue';
 let message = ref('');
 let i = 0;
 let items = ref([
