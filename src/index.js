@@ -7,8 +7,8 @@ import Home from './pages/Home.vue';
 import ToDo from './pages/ToDo.vue';
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/todo', component: ToDo },
+    { path: '/', component: Home, name: 'Home' },
+    { path: '/todo', component: ToDo, name: 'ToDo' },
   ];
 
 const router = createRouter({
