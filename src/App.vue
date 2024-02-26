@@ -11,30 +11,9 @@
                     </button>
                 </div>
             </div>
-            <h1>All items</h1>
-            <ul>
-                <li v-for="item in items" :key="item.id">
-                  {{ item.name }}
-                <input type="checkbox" v-model="item.isDone">
-                </li>
-            </ul>
-
-            <h1>Done items</h1>
-            <ul>
-                <li v-for="item in doneItems" :key="item.id">
-                  {{ item.name }}
-                <input type="checkbox" v-model="item.isDone">
-                </li>
-            </ul>
-           
-            <h1>ToDo items</h1>
-            <ul>
-                <li v-for="item in toDoItems" :key="item.id">
-                  {{ item.name }}
-                <input type="checkbox" v-model="item.isDone">
-                </li>
-            </ul>
-            <ItemList></ItemList>
+            <ItemList :items="items" title="All Items"></ItemList>
+            <ItemList :items="doneItems" title="Done Items"></ItemList>
+            <ItemList :items="toDoItems" title="To Do Items"></ItemList>
         </div>
     </div>
 </template>
