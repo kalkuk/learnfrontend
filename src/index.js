@@ -5,10 +5,14 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 
 import Home from './pages/Home.vue';
 import ToDo from './pages/ToDo.vue';
+import Modals from './pages/Modals.vue';
+import CanvasExample from './pages/CanvasExample.vue';
 
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/todo', component: ToDo, name: 'ToDo' },
+    { path: '/modals', component: Modals, name: 'Modals' },
+    { path: '/canvas', component: CanvasExample, name: 'Canvas' },
   ];
 
 const router = createRouter({
